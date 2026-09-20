@@ -4,8 +4,14 @@
 
 local M = {}
 
-local DEFAULT_LIBRARY_PRIORITY = 140
+local SEMANTIC_CORRECTION_PRIORITY = 140
 local COMMENT_PRIORITY = 150
+
+local function highlight(args, group, priority)
+    vim.lsp.semantic_tokens.highlight_token(
+        args.data.token, args.buf, args.data.client_id, group,
+        { priority = priority })
+end
 
 function M.setup()
     local grp = vim.api.nvim_create_augroup("SanzoSemantic", { clear = true })
@@ -17,21 +23,13 @@ function M.setup()
             local tok = args.data.token
 
             if tok.type == "comment" then
-                vim.lsp.semantic_tokens.highlight_token(
-                    tok, args.buf, args.data.client_id, "SanzoComment",
-                    { priority = COMMENT_PRIORITY })
-            end
-
-            if tok.type == "function" and tok.modifiers.defaultLibrary then
-                vim.lsp.semantic_tokens.highlight_token(
-                    tok, args.buf, args.data.client_id, "SanzoFunctionLib",
-                    { priority = DEFAULT_LIBRARY_PRIORITY })
-            end
-
-            if tok.type == "type" and tok.modifiers.defaultLibrary then
-                vim.lsp.semantic_tokens.highlight_token(
-                    tok, args.buf, args.data.client_id, "SanzoBuiltin",
-                    { priority = DEFAULT_LIBRARY_PRIORITY })
+                highlight(args, "SanzoComment", COMMENT_PRIORITY)
+            elseif tok.type == "macro" then
+                highlight(args, "SanzoDefine", SEMANTIC_CORRECTION_PRIORITY)
+            elseif tok.type == "function" and tok.modifiers.defaultLibrary then
+                highlight(args, "SanzoFunctionLib", SEMANTIC_CORRECTION_PRIORITY)
+            elseif tok.type == "type" and tok.modifiers.defaultLibrary then
+                highlight(args, "SanzoBuiltin", SEMANTIC_CORRECTION_PRIORITY)
             end
         end,
     })
