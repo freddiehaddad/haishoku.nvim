@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = {
-    transparent   = true,
+    transparent   = false,
     on_highlights = nil, -- function(h, p) mutate final table (wins last)
 }
 
@@ -16,7 +16,7 @@ function M.load()
     vim.g.colors_name = "sanzo"
 
     local cfg = M.config
-    local p = require("sanzo.palette").get()
+    local p = require("sanzo.palette")
 
     local h = require("sanzo.groups")(p, cfg)
 
