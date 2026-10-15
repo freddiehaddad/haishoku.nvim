@@ -75,3 +75,23 @@ difference keeps the code legible.
 
 For a full repaint, edit `lua/sanzo/palette.lua`. The rest of the scheme reads
 from it.
+
+## Per-language highlights & contributing
+
+Sanzo's palette is language-agnostic, but the fine-grained categorization of a
+language lives in two places:
+
+- `after/queries/<lang>/` — treesitter query overrides.
+- `lua/sanzo/highlight/<lang>.lua` — LSP semantic-token and capture mappings
+  onto Sanzo's roles (e.g. see `lua/sanzo/highlight/c.lua`).
+
+Only C ships today, because C is what I write. I'd rather keep the scheme honest
+than fill it with language mappings I don't use and can't judge by eye. If you
+work in another language and the LSP/treesitter data is rich enough to
+categorize well, two paths are both welcome:
+
+- **Local:** drop a `highlight/<lang>.lua` (and queries) in your own config to
+  tune it for yourself — nothing needs to be upstreamed.
+- **Upstream:** open a PR with the same for a language you actually use. Hand-
+  tuned mappings from someone who reads that code daily are exactly what keeps
+  the scheme coherent.
