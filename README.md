@@ -83,12 +83,11 @@ language lives in two places:
 
 - `after/queries/<lang>/` — treesitter query overrides.
 - `lua/sanzo/highlight/<lang>.lua` — LSP semantic-token and capture mappings
-  onto Sanzo's roles (e.g. see `lua/sanzo/highlight/c.lua`).
+  onto Sanzo's roles (see `lua/sanzo/highlight/c.lua` and
+  `lua/sanzo/highlight/rust.lua`).
 
-Only C ships today, because C is what I write. I'd rather keep the scheme honest
-than fill it with language mappings I don't use and can't judge by eye. If you
-work in another language and the LSP/treesitter data is rich enough to
-categorize well, two paths are both welcome:
+C and Rust ship today. If you work in another language and the LSP/treesitter
+data is rich enough to categorize well, two paths are both welcome:
 
 - **Local:** drop a `highlight/<lang>.lua` (and queries) in your own config to
   tune it for yourself — nothing needs to be upstreamed.
