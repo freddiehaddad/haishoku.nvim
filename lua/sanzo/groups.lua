@@ -20,7 +20,7 @@ return function(p, cfg)
     h.SanzoReturn                 = { fg = p.role_ret }
     h.SanzoOperator               = { fg = p.role_op }
     h.SanzoPunct                  = { fg = p.role_punct }
-    h.SanzoComment                = { fg = p.role_comment, italic = true }
+    h.SanzoComment                = { fg = p.role_comment }
     h.SanzoVariable               = { fg = p.var }
     h.SanzoParameter              = { fg = p.param }
     h.SanzoField                  = { fg = p.fg }
