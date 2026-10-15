@@ -37,8 +37,8 @@ return function(p, cfg)
     h.MsgArea                     = { bg = BG }
     h.EndOfBuffer                 = { fg = p.grey_ui, bg = BG }
     h.ColorColumn                 = { bg = "NONE" }
-    h.CursorLine                  = { bg = "NONE" }
-    h.CursorColumn                = { bg = "NONE" }
+    h.CursorLine                  = { bg = p.cursorline }
+    h.CursorColumn                = { bg = p.cursorline }
     h.Cursor                      = { fg = p.bg, bg = p.fg }
     h.LineNr                      = { fg = p.grey_ui, bg = BG }
     h.LineNrAbove                 = { fg = p.grey_ui, bg = BG }

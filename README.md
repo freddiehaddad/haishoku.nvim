@@ -46,6 +46,7 @@ local palette = require("sanzo.palette")
 
 palette.bg = "#1a1b26"
 palette.bg_float = "#24283b"
+palette.cursorline = "#292e42"
 palette.fg = "#c0caf5"
 
 -- Function: warm yellow / soft gold
