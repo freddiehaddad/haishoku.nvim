@@ -29,7 +29,7 @@ return function(p, cfg)
     h.Normal                      = { fg = p.fg, bg = BG }
     h.NormalNC                    = { fg = p.fg, bg = BG }
     h.NormalFloat                 = { fg = p.fg, bg = FLOAT_BG }
-    h.FloatBorder                 = { fg = p.role_punct, bg = FLOAT_BG }
+    h.FloatBorder                 = { fg = p.grey_ui, bg = FLOAT_BG }
     h.FloatTitle                  = { fg = p.fg, bg = FLOAT_BG }
     h.FloatFooter                 = { link = "FloatTitle" }
     h.SignColumn                  = { bg = BG }
