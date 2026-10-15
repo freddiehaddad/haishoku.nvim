@@ -6,6 +6,8 @@ return function(p)
     local h = {}
     local function set(list, o) for _, g in ipairs(list) do h[g] = o end end
 
+    h.MasonNormal = { link = "NormalFloat" }
+
     set({
         "MasonHeader",
         "MasonHeaderSecondary"

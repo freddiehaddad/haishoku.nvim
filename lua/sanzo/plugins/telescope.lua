@@ -11,14 +11,14 @@ return function(p)
         "TelescopePromptNormal",
         "TelescopeResultsNormal",
         "TelescopePreviewNormal"
-    }, { bg = "NONE" })
+    }, { link = "NormalFloat" })
 
     set({
         "TelescopePromptBorder",
         "TelescopeResultsBorder",
         "TelescopePreviewBorder",
         "TelescopeBorder"
-    }, { fg = p.punc_grey, bg = "NONE" })
+    }, { link = "FloatBorder" })
 
     h.TelescopePromptTitle    = { fg = p.punc_grey, bg = "NONE" }
     h.TelescopeResultsTitle   = { fg = p.role_def, bg = "NONE" }
@@ -28,6 +28,7 @@ return function(p)
     h.TelescopeSelection      = { fg = p.role_fn, bg = "NONE", bold = true }
     h.TelescopeSelectionCaret = { fg = p.role_fn, bg = "NONE" }
     h.TelescopeMatching       = { fg = p.role_fn, bold = true }
+    h.TelescopeResultsLineNr  = { fg = p.grey_ui }
 
     return h
 end

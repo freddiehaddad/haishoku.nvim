@@ -1,5 +1,6 @@
 return {
     bg           = "#2B2A2A",
+    bg_float     = "#353434",
     sel          = "#404040",
     vis          = "#4d4d4d",
 

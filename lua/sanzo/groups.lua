@@ -6,6 +6,7 @@
 return function(p, cfg)
     local h                       = {}
     local BG                      = cfg.transparent and "NONE" or p.bg
+    local FLOAT_BG                = cfg.transparent and "NONE" or p.bg_float
 
     h.SanzoFunction               = { fg = p.role_fn }
     h.SanzoFunctionLib            = { fg = p.role_fn_lib }
@@ -27,9 +28,10 @@ return function(p, cfg)
     -- ---- editor chrome -----------------------------------------------------
     h.Normal                      = { fg = p.fg, bg = BG }
     h.NormalNC                    = { fg = p.fg, bg = BG }
-    h.NormalFloat                 = { fg = p.fg, bg = BG }
-    h.FloatBorder                 = { fg = p.role_punct, bg = BG }
-    h.FloatTitle                  = { fg = p.fg, bg = BG }
+    h.NormalFloat                 = { fg = p.fg, bg = FLOAT_BG }
+    h.FloatBorder                 = { fg = p.role_punct, bg = FLOAT_BG }
+    h.FloatTitle                  = { fg = p.fg, bg = FLOAT_BG }
+    h.FloatFooter                 = { link = "FloatTitle" }
     h.SignColumn                  = { bg = BG }
     h.FoldColumn                  = { bg = BG }
     h.MsgArea                     = { bg = BG }
@@ -72,13 +74,14 @@ return function(p, cfg)
     h.MsgSeparator                = { fg = p.grey, bg = "NONE" }
 
     -- ---- popup menu --------------------------------------------------------
-    h.Pmenu                       = { fg = p.fg, bg = BG }
+    h.Pmenu                       = { fg = p.fg, bg = FLOAT_BG }
     h.PmenuSel                    = { fg = p.role_fn, bg = p.sel, bold = true }
-    h.PmenuSbar                   = { bg = "NONE" }
+    h.PmenuSbar                   = { bg = FLOAT_BG }
     h.PmenuThumb                  = { bg = p.grey }
-    h.PmenuKind                   = { fg = p.role_def, bg = BG }
+    h.PmenuKind                   = { fg = p.role_def, bg = FLOAT_BG }
     h.PmenuKindSel                = { fg = p.role_def, bg = p.sel, bold = true }
-    h.PmenuExtra                  = { fg = p.grey, bg = BG }
+    h.PmenuExtra                  = { fg = p.grey, bg = FLOAT_BG }
+    h.PmenuBorder                 = { link = "FloatBorder" }
     h.WildMenu                    = { fg = p.role_fn, bg = p.sel }
 
     -- ---- tabline -----------------------------------------------------------
@@ -113,7 +116,7 @@ return function(p, cfg)
     for sev, c in pairs(dcol) do
         h["Diagnostic" .. sev]            = { fg = c }
         h["DiagnosticVirtualText" .. sev] = { fg = c }
-        h["DiagnosticFloating" .. sev]    = { fg = c, bg = BG }
+        h["DiagnosticFloating" .. sev]    = { fg = c, bg = FLOAT_BG }
         h["DiagnosticSign" .. sev]        = { fg = c, bg = BG }
         h["DiagnosticUnderline" .. sev]   = { undercurl = true, sp = c }
     end
