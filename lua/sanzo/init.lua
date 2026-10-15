@@ -42,6 +42,10 @@ function M.load()
         vim.api.nvim_set_hl(0, group, opts)
     end
 
+    for index, color in pairs(require("sanzo.terminal")(p)) do
+        vim.g["terminal_color_" .. index] = color
+    end
+
     require("sanzo.semantic").setup()
 end
 
