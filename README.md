@@ -44,28 +44,28 @@ Sanzo's accent-and-sibling grammar:
 ```lua
 local palette = require("sanzo.palette")
 
-palette.bg = "#1e1e2e"
-palette.fg = "#cdd6f4"
+palette.bg = "#1a1b26"
+palette.fg = "#c0caf5"
 
--- Function: blue / sapphire
-palette.role_fn = "#89b4fa"
-palette.role_fn_lib = "#74c7ec"
+-- Function: warm yellow / soft gold
+palette.role_fn = "#e0af68"
+palette.role_fn_lib = "#c9ae83"
 
--- Type: yellow / peach
-palette.role_type = "#f9e2af"
-palette.role_builtin = "#fab387"
+-- Type: blue / muted blue
+palette.role_type = "#7aa2f7"
+palette.role_builtin = "#89a7d8"
 
--- String: green / teal
-palette.role_string = "#a6e3a1"
-palette.role_def = "#94e2d5"
+-- String: green / soft teal
+palette.role_string = "#9ece6a"
+palette.role_def = "#73daca"
 
--- Constant: red / maroon
-palette.role_const = "#f38ba8"
-palette.role_ret = "#eba0ac"
+-- Constant: pink-red / muted rose
+palette.role_const = "#f7768e"
+palette.role_ret = "#d88b9d"
 
--- Keyword: mauve / lavender
-palette.role_keyword = "#cba6f7"
-palette.role_kw_ctrl = "#b4befe"
+-- Keyword: purple / muted lavender
+palette.role_keyword = "#bb9af7"
+palette.role_kw_ctrl = "#9d7cd8"
 
 vim.cmd.colorscheme("sanzo")
 ```
