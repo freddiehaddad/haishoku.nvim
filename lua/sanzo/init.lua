@@ -22,13 +22,13 @@ function M.load()
 
     -- auto-load every lua/sanzo/plugins/*.lua (drop a file = new plugin)
     for _, file in ipairs(vim.api.nvim_get_runtime_file("lua/sanzo/plugins/*.lua", true)) do
-        local name = file:match("([^/]+)%.lua$")
+        local name = vim.fn.fnamemodify(file, ":t:r")
         for g, o in pairs(require("sanzo.plugins." .. name)(p)) do h[g] = o end
     end
 
     -- auto-load every lua/sanzo/highlight/*.lua (drop a file = new language)
     for _, file in ipairs(vim.api.nvim_get_runtime_file("lua/sanzo/highlight/*.lua", true)) do
-        local name = file:match("([^/]+)%.lua$")
+        local name = vim.fn.fnamemodify(file, ":t:r")
         for group, target in pairs(require("sanzo.highlight." .. name)) do
             if h[group] == nil then
                 h[group] = type(target) == "string" and { link = target } or target
