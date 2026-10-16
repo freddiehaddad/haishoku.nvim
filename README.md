@@ -1,7 +1,13 @@
-<p align="center">
-    <img src="assets/sanzo_logo.webp" width="240" alt="Sanzo logo">
-</p>
-<h1 align="center">sanzo</h1>
+<h1>
+  <img
+    src="assets/sanzo_logo.webp"
+    alt="Sanzo Logo"
+    width="48"
+    height="48"
+    align="absmiddle"
+  >
+  Sanzo
+</h1>
 
 <p align="center">
     A quiet Neovim color scheme. Accents and siblings distinguish syntax.<br>
@@ -10,7 +16,7 @@
 
 <p align="center">
     <img
-        src="https://culturecode.dev/posts/what-most-colorschemes-miss/sanzo_showcase.webp"
+        src="assets/screenshot.png"
         width="860"
         alt="Sanzo color scheme in Neovim"
     >
