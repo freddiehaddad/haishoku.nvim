@@ -1,5 +1,5 @@
 -- ----------------------------------------------------------------------------
--- Sanzo: runtime priority corrections for LSP semantic tokens
+-- Haishoku: runtime priority corrections for LSP semantic tokens
 -- ----------------------------------------------------------------------------
 
 local M = {}
@@ -23,9 +23,9 @@ local function lua_group(token, buf)
         token.line, token.end_col, {})[1]
 
     -- LuaLS omits builtin provenance for annotation types and _ENV.
-    if builtin_type and LUA_BUILTIN_TYPES[text] then return "SanzoBuiltin" end
-    if library_variable and text == "_VERSION" then return "SanzoConstant" end
-    if readonly_variable and text == "_ENV" then return "SanzoDefine" end
+    if builtin_type and LUA_BUILTIN_TYPES[text] then return "HaishokuBuiltin" end
+    if library_variable and text == "_VERSION" then return "HaishokuConstant" end
+    if readonly_variable and text == "_ENV" then return "HaishokuDefine" end
 end
 
 local function highlight(args, group, priority)
@@ -35,23 +35,23 @@ local function highlight(args, group, priority)
 end
 
 function M.setup()
-    local grp = vim.api.nvim_create_augroup("SanzoSemantic", { clear = true })
+    local grp = vim.api.nvim_create_augroup("HaishokuSemantic", { clear = true })
 
     vim.api.nvim_create_autocmd("LspTokenUpdate", {
         group = grp,
         callback = function(args)
-            if vim.g.colors_name ~= "sanzo" then return end
+            if vim.g.colors_name ~= "haishoku" then return end
             local tok = args.data.token
 
             if tok.type == "comment" then
-                highlight(args, "SanzoComment", COMMENT_PRIORITY)
+                highlight(args, "HaishokuComment", COMMENT_PRIORITY)
             elseif tok.type == "macro" then
                 highlight(args, "@lsp.type.macro." .. vim.bo[args.buf].filetype,
                     SEMANTIC_CORRECTION_PRIORITY)
             elseif tok.type == "function" and tok.modifiers.defaultLibrary then
-                highlight(args, "SanzoFunctionLib", SEMANTIC_CORRECTION_PRIORITY)
+                highlight(args, "HaishokuFunctionLib", SEMANTIC_CORRECTION_PRIORITY)
             elseif tok.type == "type" and tok.modifiers.defaultLibrary then
-                highlight(args, "SanzoBuiltin", SEMANTIC_CORRECTION_PRIORITY)
+                highlight(args, "HaishokuBuiltin", SEMANTIC_CORRECTION_PRIORITY)
             elseif vim.bo[args.buf].filetype == "lua" then
                 local group = lua_group(tok, args.buf)
                 if group then highlight(args, group, SEMANTIC_CORRECTION_PRIORITY) end

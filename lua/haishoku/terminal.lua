@@ -1,8 +1,8 @@
 local function brighten(color, foreground)
     local base = vim.api.nvim_get_color_by_name(color)
     local target = vim.api.nvim_get_color_by_name(foreground)
-    assert(base >= 0, "sanzo: invalid terminal color: " .. color)
-    assert(target >= 0, "sanzo: invalid terminal foreground: " .. foreground)
+    assert(base >= 0, "haishoku: invalid terminal color: " .. color)
+    assert(target >= 0, "haishoku: invalid terminal foreground: " .. foreground)
 
     local channels = {}
     for _, divisor in ipairs({ 0x10000, 0x100, 1 }) do

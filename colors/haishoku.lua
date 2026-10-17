@@ -1,0 +1,1 @@
+require("haishoku").load()

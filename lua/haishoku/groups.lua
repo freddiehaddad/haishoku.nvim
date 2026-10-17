@@ -1,5 +1,5 @@
 -- ----------------------------------------------------------------------------
--- Sanzo: single color file
+-- Haishoku: single color file
 -- (palette) -> { [group] = opts }
 -- ----------------------------------------------------------------------------
 
@@ -8,22 +8,22 @@ return function(p, cfg)
     local BG                      = cfg.transparent and "NONE" or p.bg
     local FLOAT_BG                = cfg.transparent and "NONE" or p.bg_float
 
-    h.SanzoFunction               = { fg = p.role_fn }
-    h.SanzoFunctionLib            = { fg = p.role_fn_lib }
-    h.SanzoType                   = { fg = p.role_type }
-    h.SanzoBuiltin                = { fg = p.role_builtin }
-    h.SanzoDefine                 = { fg = p.role_def }
-    h.SanzoKeyword                = { fg = p.role_keyword }
-    h.SanzoControl                = { fg = p.role_kw_ctrl }
-    h.SanzoString                 = { fg = p.role_string }
-    h.SanzoConstant               = { fg = p.role_const }
-    h.SanzoReturn                 = { fg = p.role_ret }
-    h.SanzoOperator               = { fg = p.role_op }
-    h.SanzoPunct                  = { fg = p.role_punct }
-    h.SanzoComment                = { fg = p.role_comment }
-    h.SanzoVariable               = { fg = p.var }
-    h.SanzoParameter              = { fg = p.param }
-    h.SanzoField                  = { fg = p.fg }
+    h.HaishokuFunction            = { fg = p.role_fn }
+    h.HaishokuFunctionLib         = { fg = p.role_fn_lib }
+    h.HaishokuType                = { fg = p.role_type }
+    h.HaishokuBuiltin             = { fg = p.role_builtin }
+    h.HaishokuDefine              = { fg = p.role_def }
+    h.HaishokuKeyword             = { fg = p.role_keyword }
+    h.HaishokuControl             = { fg = p.role_kw_ctrl }
+    h.HaishokuString              = { fg = p.role_string }
+    h.HaishokuConstant            = { fg = p.role_const }
+    h.HaishokuReturn              = { fg = p.role_ret }
+    h.HaishokuOperator            = { fg = p.role_op }
+    h.HaishokuPunct               = { fg = p.role_punct }
+    h.HaishokuComment             = { fg = p.role_comment }
+    h.HaishokuVariable            = { fg = p.var }
+    h.HaishokuParameter           = { fg = p.param }
+    h.HaishokuField               = { fg = p.fg }
 
     -- ---- editor chrome -----------------------------------------------------
     h.Normal                      = { fg = p.fg, bg = BG }

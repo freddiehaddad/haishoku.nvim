@@ -1,24 +1,24 @@
 <h1>
   <img
-    src="assets/sanzo_logo.webp"
-    alt="Sanzo Logo"
+    src="assets/haishoku_logo.svg"
+    alt="Haishoku Logo"
     width="48"
     height="48"
     align="absmiddle"
   >
-  Sanzo
+  Haishoku
 </h1>
 
 <p align="center">
     A quiet Neovim color scheme. Accents and siblings distinguish syntax.<br>
-    Inspired by Wada Sanzō.
+    Inspired by <em>A Dictionary of Color Combinations</em> (配色総鑑).
 </p>
 
 <p align="center">
     <img
         src="assets/screenshot.png"
         width="860"
-        alt="Sanzo color scheme in Neovim"
+        alt="Haishoku color scheme in Neovim"
     >
 </p>
 
@@ -26,15 +26,15 @@
 
 ```lua
 vim.pack.add({
-  "https://codeberg.org/navahas/sanzo.nvim",
+  "https://github.com/freddiehaddad/haishoku.nvim",
 })
 
-vim.cmd.colorscheme("sanzo")
+vim.cmd.colorscheme("haishoku")
 ```
 
 ## Change the colors
 
-Sanzo builds variety from pairs. Each accent has a nearby sibling:
+Haishoku builds variety from pairs. Each accent has a nearby sibling:
 
 ```text
 function  / library function
@@ -45,10 +45,10 @@ keyword   / control flow
 ```
 The palette is a plain Lua table. Change it before loading the scheme. Here is
 [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) translated into
-Sanzo's accent-and-sibling grammar:
+Haishoku's accent-and-sibling grammar:
 
 ```lua
-local palette = require("sanzo.palette")
+local palette = require("haishoku.palette")
 
 palette.bg = "#1a1b26"
 palette.bg_float = "#24283b"
@@ -75,25 +75,25 @@ palette.role_ret = "#d88b9d"
 palette.role_keyword = "#bb9af7"
 palette.role_kw_ctrl = "#9d7cd8"
 
-vim.cmd.colorscheme("sanzo")
+vim.cmd.colorscheme("haishoku")
 ```
 
 Change both colors in a pair. Their kinship keeps the scheme coherent, their
 difference keeps the code legible.
 
-For a full repaint, edit `lua/sanzo/palette.lua`. The rest of the scheme reads
+For a full repaint, edit `lua/haishoku/palette.lua`. The rest of the scheme reads
 from it.
 
 ## Per-language highlights & contributing
 
-Sanzo's palette is language-agnostic, but the fine-grained categorization of a
+Haishoku's palette is language-agnostic, but the fine-grained categorization of a
 language lives in two places:
 
 - `after/queries/<lang>/` — treesitter query overrides.
-- `lua/sanzo/highlight/<lang>.lua` — LSP semantic-token and capture mappings
-  onto Sanzo's roles (see `lua/sanzo/highlight/asm.lua`,
-  `lua/sanzo/highlight/c.lua`, `lua/sanzo/highlight/lua.lua` and
-  `lua/sanzo/highlight/rust.lua`).
+- `lua/haishoku/highlight/<lang>.lua` — LSP semantic-token and capture mappings
+  onto Haishoku's roles (see `lua/haishoku/highlight/asm.lua`,
+  `lua/haishoku/highlight/c.lua`, `lua/haishoku/highlight/lua.lua` and
+  `lua/haishoku/highlight/rust.lua`).
 
 Assembly, C, Lua and Rust ship today. If you work in another language and the
 LSP/treesitter data is rich enough to categorize well, two paths are both
